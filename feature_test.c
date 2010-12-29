@@ -723,22 +723,6 @@ int frame_rate_ctrl(struct camera_data *cam)
 	return 0;
 }
 
-/************************************************************************************************************
- *  
- *  MODULE TYPE	:	FUNCTION				MODULE ID	:	FEATURE_TEST_20
- *
- *  Name	:	get_camera_format
- *  Parameter1	:	struct camera_data *cam - Base pointer of camera structure
- *  Parameter2	:	
- *
- *  Returns	:	Function result depends on return value of child functions and 
- *  			condition available in the functions based on this return value will
- *
- *  			0	- all the condition executed properly
- *  			-1	- Failed to perform specified operation
- *  Description	: 	
- *  Comments	:  	Get the using dimension in the driver for capture routine
- ************************************************************************************************************/
 int get_camera_format(struct camera_data *cam)
 {
 	cam->fmt.type = V4L2_BUF_TYPE_VIDEO_CAPTURE;
@@ -746,22 +730,6 @@ int get_camera_format(struct camera_data *cam)
 	return ioctl(cam->fd_v4l2, VIDIOC_G_FMT, &cam->fmt);
 }
 
-/************************************************************************************************************
- *  
- *  MODULE TYPE	:	FUNCTION				MODULE ID	:	FEATURE_TEST_21
- *
- *  Name	:	close_camera
- *  Parameter1	:	struct camera_data *cam - Base pointer of camera structure
- *  Parameter2	:	
- *
- *  Returns	:	Function result depends on return value of child functions and 
- *  			condition available in the functions based on this return value will
- *
- *  			0	- all the condition executed properly
- *  			-1	- Failed to perform specified operation
- *  Description	: 	
- *  Comments	:  	safely colses the camera driver
- ************************************************************************************************************/
 int close_camera(struct camera_data *cam)
 {
 	close(cam->fd_v4l2);
@@ -867,24 +835,7 @@ int imgneed(unsigned char * imgbuf,unsigned char ** out_img,int needht,int needw
 	*out_img	= needbuf;
 	return 0;
 }
-/************************************************************************************************************
- *  
- *  MODULE TYPE	:	FUNCTION				MODULE ID	:	
- *
- *  Name	:	make_bitalign
- *  Parameter1	:	unsigned char * imgbuf
- *  Parameter2	:	unsigned char ** out_buf
- *  Parameter3	:	int needht
- *  Parameter4	:	int needwt
- *
- *  Returns	:	Function result depends on return value of child functions and 
- *  			condition available in the functions based on this return value will
- *
- *  			0	- all the condition executed properly
- *  			-1	- Failed to perform specified operation
- *  Description	: 	
- *  Comments	:  	
- ************************************************************************************************************/
+
 int make_bitalign(unsigned char *imgbuf, unsigned char **out_buf, int needht, int needwt)
 {
 	int w3 = needwt * 3;
