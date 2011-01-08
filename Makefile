@@ -34,7 +34,7 @@ feature_test.o: feature_test.c
 	$(CC) $(CFLAGS) $(INC_PATH) -c feature_test.c
 
 
-deploy:
+install:
 	sudo cp $(TARGET) /exports/overo/home/root
 
 clean:
